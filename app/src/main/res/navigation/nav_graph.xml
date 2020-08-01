@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mailsFragment">
+
+    <fragment
+        android:id="@+id/mailsFragment"
+        android:name="com.example.mailroom.ui.mails.MailsFragment"
+        tools:layout="@layout/mails_fragment"
+        android:label="MailsFragment" >
+        <action
+            android:id="@+id/action_mailsFragment_to_newMailFragment"
+            app:destination="@id/newMailFragment"
+            app:enterAnim="@anim/slide_in_up"
+            app:exitAnim="@anim/slide_out_buttom"
+            app:popEnterAnim="@anim/slide_in_up"
+            app:popExitAnim="@anim/slide_out_buttom"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/newMailFragment"
+        android:name="com.example.mailroom.ui.mails.NewMailFragment"
+        android:label="NewMailFragment"
+        tools:layout="@layout/fragment_new_mail"/>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.mailroom.ui.users.UserFragment"
+        android:label="user_fragment"
+        tools:layout="@layout/user_fragment" >
+        <action
+            android:id="@+id/action_userFragment_to_newUserFragment"
+            app:destination="@id/newUserFragment"
+            app:enterAnim="@anim/slide_in_up"
+            app:exitAnim="@anim/slide_out_buttom"
+            app:popEnterAnim="@anim/slide_in_up"
+            app:popExitAnim="@anim/slide_out_buttom"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/newUserFragment"
+        android:name="com.example.mailroom.ui.users.NewUserFragment"
+        android:label="NewUserFragment"
+        tools:layout="@layout/fragment_new_user"/>
+</navigation>
