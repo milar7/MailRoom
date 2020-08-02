@@ -21,5 +21,7 @@ class MailsViewModel(
         mailRepository.upsertMail(mail)
     }
 
-    fun getProducts()=mailRepository.getUserWithMail()
+    fun getUsers()=mailRepository.getUsers()
+    fun getMails()=mailRepository.getMails()
+    fun searchUsersByName(name :String)=mailRepository.searchUsersByName(name)
 }

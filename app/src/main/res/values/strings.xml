@@ -4,14 +4,18 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
-    <string-array name="planets_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+    <string-array name="roles_array">
+        <item>کارشناس</item>
+        <item>کارشناس ارشد</item>
+        <item>مدیر بخش</item>
+        <item>معاون</item>
+        <item>مدیر کل</item>
+    </string-array>
+    <string-array name="mail_type_array">
+        <item>کارشناeweس</item>
+        <item>کارشناس اeweرشد</item>
+        <item>مدیرewe بخش</item>
+        <item>معاweeون</item>
+        <item>مدیرwe کل</item>
     </string-array>
 </resources>

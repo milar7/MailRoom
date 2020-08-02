@@ -12,6 +12,10 @@ class MailRepository(val db :MailDatabase) {
     suspend fun upsertUser(user: User) = db.getMailDao().upsert(user)
 
     fun getUserWithMail()=db.getMailDao().getUserWithMails()
+    fun getUsers()=db.getMailDao().getUsers()
+    fun getMails()=db.getMailDao().getMails()
+
+    fun searchUsersByName(name:String)=db.getMailDao().searchUsersByName(name)
 
 
 }

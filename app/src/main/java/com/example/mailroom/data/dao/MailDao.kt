@@ -15,6 +15,14 @@ interface MailDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(user: User)
 
+    @Query("SELECT * FROM User")
+    fun getUsers(): LiveData<List<User>>
+
+    @Query("SELECT * FROM User WHERE name LIKE '%' || :name || '%'")
+    fun searchUsersByName(name:String): LiveData<List<User>>
+
+    @Query("SELECT * FROM Mail ORDER BY sendDate desc ")
+    fun getMails(): LiveData<List<Mail>>
 
     @Transaction
     @Query("SELECT * FROM User")

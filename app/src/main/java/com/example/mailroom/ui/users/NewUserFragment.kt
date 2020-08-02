@@ -13,7 +13,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.mailroom.R
 import com.example.mailroom.data.MailDatabase
 import com.example.mailroom.data.MailRepository
-import com.example.mailroom.databinding.FragmentNewMailBinding
 import com.example.mailroom.databinding.FragmentNewUserBinding
 import com.example.mailroom.util.InjectorUtil
 
@@ -21,6 +20,7 @@ class NewUserFragment : Fragment() {
 
     private lateinit var binding: FragmentNewUserBinding
     private lateinit var viewModel: UserViewModel
+    private lateinit var userListAdapter: UserListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,7 +49,7 @@ class NewUserFragment : Fragment() {
         val spinner = binding.rolesSpinner
         ArrayAdapter.createFromResource(
             requireContext(),
-            R.array.planets_array,
+            R.array.roles_array,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
             // Specify the layout to use when the list of choices appears
