@@ -28,6 +28,19 @@ interface MailDao {
 
     @Query("SELECT * FROM Mail WHERE senderuserId = :id or receiveruserId =:id")
     fun getUserMails(id:Long): LiveData<List<Mail>>
+
+
+    @Query("SELECT * FROM Mail WHERE senderuserId = :id ORDER BY sendDate DESC")
+    fun getUserMailsSenderDesc(id:Long): LiveData<List<Mail>>
+
+    @Query("SELECT * FROM Mail WHERE receiveruserId = :id ORDER BY sendDate DESC")
+    fun getUserMailsReceiverDesc(id:Long): LiveData<List<Mail>>
+
+    @Query("SELECT * FROM Mail WHERE senderuserId = :id ORDER BY sendDate ASC")
+    fun getUserMailsSenderAsc(id:Long): LiveData<List<Mail>>
+    @Query("SELECT * FROM Mail WHERE receiveruserId = :id ORDER BY sendDate ASC")
+    fun getUserMailsReceiverAsc(id:Long): LiveData<List<Mail>>
+
     @Transaction
     @Query("SELECT * FROM User")
     fun getUserWithMails(): LiveData<List<UserWithMails>>

@@ -14,6 +14,8 @@ import com.example.mailroom.R
 import com.example.mailroom.data.MailDatabase
 import com.example.mailroom.data.MailRepository
 import com.example.mailroom.databinding.FragmentNewUserBinding
+import com.example.mailroom.util.Constans
+import com.example.mailroom.util.CurrentFragment
 import com.example.mailroom.util.InjectorUtil
 
 class NewUserFragment : Fragment() {
@@ -26,6 +28,7 @@ class NewUserFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        CurrentFragment.curr= Constans.NOTHOME
 
                  binding = DataBindingUtil.inflate(inflater, R.layout.fragment_new_user, container, false)
                  binding.lifecycleOwner = this

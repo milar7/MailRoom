@@ -27,4 +27,10 @@ class MailsViewModel(
     fun getUsers()=mailRepository.getUsers()
     fun getMails()=mailRepository.getMails()
     fun searchUsersByName(name :String)=mailRepository.searchUsersByName(name)
+
+
+    fun getUserMailsSenderDesc(id:Long)=mailRepository.getUserMailsSenderDesc(id)
+    fun getUserMailsSenderAsc(id:Long)=mailRepository.getUserMailsSenderAsc(id)
+    fun getUserMailsReceiverDesc(id:Long)=mailRepository.getUserMailsReceiverDesc(id)
+    fun getUserMailsReceiverAsc(id:Long)=mailRepository.getUserMailsReceiverAsc(id)
 }

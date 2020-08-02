@@ -20,6 +20,8 @@ import com.example.mailroom.data.MailRepository
 import com.example.mailroom.data.entity.Mail
 import com.example.mailroom.databinding.MailsFragmentBinding
 import com.example.mailroom.ui.users.UserListAdapter
+import com.example.mailroom.util.Constans
+import com.example.mailroom.util.CurrentFragment
 import com.example.mailroom.util.InjectorUtil
 import com.google.android.material.snackbar.Snackbar
 
@@ -27,13 +29,14 @@ class MailsFragment : Fragment(), MailListAdapter.Interaction {
 
 
     private lateinit var viewModel: MailsViewModel
-    private lateinit var binding: MailsFragmentBinding
     private lateinit var mailsAdapter: MailListAdapter
+    private lateinit var binding: MailsFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        CurrentFragment.curr=Constans.HOME
 
         binding = DataBindingUtil.inflate(inflater, R.layout.mails_fragment, container, false)
         binding.lifecycleOwner = this

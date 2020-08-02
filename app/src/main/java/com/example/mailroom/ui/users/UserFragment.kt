@@ -20,6 +20,8 @@ import com.example.mailroom.data.MailDatabase
 import com.example.mailroom.data.MailRepository
 import com.example.mailroom.data.entity.User
 import com.example.mailroom.databinding.UserFragmentBinding
+import com.example.mailroom.util.Constans
+import com.example.mailroom.util.CurrentFragment
 import com.example.mailroom.util.InjectorUtil
 import com.example.mailroom.util.dismissKeyboard
 import kotlinx.android.synthetic.main.fragment_new_user.*
@@ -35,6 +37,7 @@ class UserFragment : Fragment(), UserListAdapter.Interaction {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        CurrentFragment.curr= Constans.NOTHOME
 
 
                  binding = DataBindingUtil.inflate(inflater, R.layout.user_fragment, container, false)

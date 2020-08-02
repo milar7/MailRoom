@@ -26,6 +26,8 @@ import com.example.mailroom.data.entity.Mail
 import com.example.mailroom.data.entity.User
 import com.example.mailroom.databinding.FragmentNewMailBinding
 import com.example.mailroom.ui.users.UserListAdapter
+import com.example.mailroom.util.Constans
+import com.example.mailroom.util.CurrentFragment
 import com.example.mailroom.util.InjectorUtil
 import kotlinx.android.synthetic.main.layout_recive_or_send.*
 import java.text.DateFormat
@@ -44,6 +46,8 @@ class NewMailFragment : Fragment(), UserListAdapter.Interaction {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        CurrentFragment.curr= Constans.NOTHOME
+
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_new_mail, container, false)
         binding.lifecycleOwner = this
         return binding.root

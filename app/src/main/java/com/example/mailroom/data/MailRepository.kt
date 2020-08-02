@@ -1,5 +1,6 @@
 package com.example.mailroom.data
 
+import androidx.lifecycle.LiveData
 import com.example.mailroom.data.entity.Mail
 import com.example.mailroom.data.entity.User
 
@@ -19,5 +20,10 @@ class MailRepository(val db :MailDatabase) {
 
     fun searchUsersByName(name:String)=db.getMailDao().searchUsersByName(name)
 
+
+    fun getUserMailsSenderDesc(id:Long)    =db.getMailDao().getUserMailsSenderDesc(id)
+    fun getUserMailsSenderAsc(id:Long)      =db.getMailDao().getUserMailsSenderAsc(id)
+    fun getUserMailsReceiverDesc(id:Long) =db.getMailDao().getUserMailsReceiverDesc(id)
+    fun getUserMailsReceiverAsc(id:Long)   =db.getMailDao().getUserMailsReceiverAsc(id)
 
 }

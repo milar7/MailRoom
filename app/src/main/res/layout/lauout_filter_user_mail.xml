@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="4dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="24dp"
+        android:text="this user is :"
+        app:layout_constraintBottom_toBottomOf="@+id/rg_se_re"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rg_se_re" />
+
+    <RadioGroup
+        android:id="@+id/rg_se_re"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/rb_sender"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_margin="2dp"
+            android:background="@drawable/rb_selector2"
+            android:button="@android:color/transparent"
+            android:checked="true"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingTop="1dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="1dp"
+            android:tag="0"
+            android:text="sender" />
+
+        <RadioButton
+            android:id="@+id/rb_receiver"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_margin="2dp"
+            android:background="@drawable/rb_selector2"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingTop="1dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="1dp"
+            android:tag="1"
+            android:text="receiver" />
+    </RadioGroup>
+
+
+    <TextView
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+
+        android:text="order by date :"
+        app:layout_constraintBottom_toBottomOf="@+id/rg_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rg_date" />
+
+    <RadioGroup
+        android:id="@+id/rg_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/rg_se_re"
+        app:layout_constraintTop_toBottomOf="@id/rg_se_re">
+
+        <RadioButton
+            android:id="@+id/rb_date_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_margin="2dp"
+            android:background="@drawable/rb_selector"
+            android:button="@android:color/transparent"
+            android:checked="true"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingTop="1dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="1dp"
+            android:tag="0"
+            android:text="DESC" />
+
+        <RadioButton
+            android:id="@+id/rb_date_ase"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_margin="2dp"
+            android:background="@drawable/rb_selector"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingTop="1dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="1dp"
+            android:tag="1"
+            android:text="ASE" />
+    </RadioGroup>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_submit_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text="filter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rg_date" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_cancel_filter"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:text="reset"
+        app:layout_constraintEnd_toStartOf="@id/btn_submit_filter"
+        app:layout_constraintTop_toBottomOf="@+id/rg_date" />
+</androidx.constraintlayout.widget.ConstraintLayout>

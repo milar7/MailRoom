@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_mailsFragment_to_detailMailFragment"
             app:destination="@id/detailMailFragment" />
+        <action
+            android:id="@+id/action_mailsFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/newMailFragment"
@@ -68,6 +71,14 @@
             app:argType="com.example.mailroom.data.entity.User" />
         <action
             android:id="@+id/action_userMailsFragment_to_detailMailFragment"
+            app:destination="@id/detailMailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.mailroom.ui.mails.SearchFragment"
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_detailMailFragment"
             app:destination="@id/detailMailFragment" />
     </fragment>
 </navigation>
