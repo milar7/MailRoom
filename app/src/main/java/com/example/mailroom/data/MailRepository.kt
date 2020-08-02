@@ -26,4 +26,5 @@ class MailRepository(val db :MailDatabase) {
     fun getUserMailsReceiverDesc(id:Long) =db.getMailDao().getUserMailsReceiverDesc(id)
     fun getUserMailsReceiverAsc(id:Long)   =db.getMailDao().getUserMailsReceiverAsc(id)
 
+    fun searchMail(text:String)=db.getMailDao().searchMail(text)
 }

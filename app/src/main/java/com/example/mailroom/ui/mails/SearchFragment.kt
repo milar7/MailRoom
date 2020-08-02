@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mailroom.R
 import com.example.mailroom.data.MailDatabase
@@ -64,15 +65,15 @@ class SearchFragment : Fragment(), MailListAdapter.Interaction {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                viewModel.searchUsersByName(s.toString()).observe(viewLifecycleOwner, Observer {
-                  //  searchAdapter.submitList(it)
+                viewModel.searchMail(s.toString()).observe(viewLifecycleOwner, Observer {
+                    searchAdapter.submitList(it)
                 })
             }
         })
     }
 
     override fun onItemSelected(position: Int, item: Mail) {
-
+            findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToDetailMailFragment(item))
     }
 
 }

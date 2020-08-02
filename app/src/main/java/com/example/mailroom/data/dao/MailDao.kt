@@ -41,6 +41,10 @@ interface MailDao {
     @Query("SELECT * FROM Mail WHERE receiveruserId = :id ORDER BY sendDate ASC")
     fun getUserMailsReceiverAsc(id:Long): LiveData<List<Mail>>
 
+
+    @Query("SELECT * FROM Mail WHERE  text LIKE '%' || :text || '%' ")
+    fun searchMail(text:String): LiveData<List<Mail>>
+
     @Transaction
     @Query("SELECT * FROM User")
     fun getUserWithMails(): LiveData<List<UserWithMails>>
