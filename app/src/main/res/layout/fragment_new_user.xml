@@ -9,6 +9,7 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_height="wrap_content"
+
     android:layout_width="match_parent">
 
     <com.google.android.material.textfield.TextInputLayout

@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
@@ -126,7 +127,7 @@ class UserFragment : Fragment(), UserListAdapter.Interaction {
     }
 
     override fun onItemSelected(position: Int, item: User) {
-        Toast.makeText(requireContext(),item.name,Toast.LENGTH_SHORT).show()
+       findNavController().navigate(UserFragmentDirections.actionUserFragmentToUserMailsFragment(item))
     }
 
 

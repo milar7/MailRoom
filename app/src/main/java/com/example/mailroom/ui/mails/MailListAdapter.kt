@@ -77,6 +77,8 @@ class MailListAdapter(private val interaction: Interaction? = null) :
         }
     }
 
+    fun getItemAt(position: Int):Mail=differ.currentList.get(position)
+
     interface Interaction {
         fun onItemSelected(position: Int, item: Mail)
     }

@@ -124,7 +124,7 @@ class NewMailFragment : Fragment(), UserListAdapter.Interaction {
                     text = binding.textMail.text.toString(),
                     type = type,
                     sendDate = calendar.time,
-                    userSenderId = 5,
+                    userSenderId = sender.userId!!,
                     sender = sender,
                     receiver = reciver
                 )

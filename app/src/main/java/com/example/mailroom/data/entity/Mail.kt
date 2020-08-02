@@ -15,7 +15,7 @@ data class Mail(
     val userSenderId :Long,
     @Embedded(prefix = "sender")
     val sender :User,
-@Embedded(prefix = "receiver")
+    @Embedded(prefix = "receiver")
     val receiver :User,
     var title : String,
     var text : String,

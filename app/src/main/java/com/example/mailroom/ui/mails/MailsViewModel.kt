@@ -20,7 +20,10 @@ class MailsViewModel(
     fun addMail(mail: Mail)=viewModelScope.launch {
         mailRepository.upsertMail(mail)
     }
-
+    fun deleteMail(mail: Mail)=viewModelScope.launch {
+        mailRepository.deleteMail(mail)
+    }
+    fun getUserMails(id:Long)=mailRepository.getUserMails(id)
     fun getUsers()=mailRepository.getUsers()
     fun getMails()=mailRepository.getMails()
     fun searchUsersByName(name :String)=mailRepository.searchUsersByName(name)

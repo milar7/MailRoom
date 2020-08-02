@@ -40,6 +40,9 @@
             app:popEnterAnim="@anim/slide_in_up"
             app:popExitAnim="@anim/slide_out_buttom"
             />
+        <action
+            android:id="@+id/action_userFragment_to_userMailsFragment"
+            app:destination="@id/userMailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/newUserFragment"
@@ -54,5 +57,17 @@
         <argument
             android:name="mail"
             app:argType="com.example.mailroom.data.entity.Mail" />
+    </fragment>
+    <fragment
+        android:id="@+id/userMailsFragment"
+        android:name="com.example.mailroom.ui.users.UserMailsFragment"
+        android:label="UserMailsFragment"
+        tools:layout="@layout/fragment_user_mails">
+        <argument
+            android:name="item"
+            app:argType="com.example.mailroom.data.entity.User" />
+        <action
+            android:id="@+id/action_userMailsFragment_to_detailMailFragment"
+            app:destination="@id/detailMailFragment" />
     </fragment>
 </navigation>
