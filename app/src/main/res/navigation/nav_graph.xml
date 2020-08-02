@@ -20,7 +20,12 @@
             />
         <action
             android:id="@+id/action_mailsFragment_to_detailMailFragment"
-            app:destination="@id/detailMailFragment" />
+            app:destination="@id/detailMailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
         <action
             android:id="@+id/action_mailsFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
@@ -71,14 +76,26 @@
             app:argType="com.example.mailroom.data.entity.User" />
         <action
             android:id="@+id/action_userMailsFragment_to_detailMailFragment"
-            app:destination="@id/detailMailFragment" />
+            app:destination="@id/detailMailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.mailroom.ui.mails.SearchFragment"
-        android:label="SearchFragment" >
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search"
+        >
         <action
             android:id="@+id/action_searchFragment_to_detailMailFragment"
-            app:destination="@id/detailMailFragment" />
+            app:destination="@id/detailMailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
     </fragment>
 </navigation>

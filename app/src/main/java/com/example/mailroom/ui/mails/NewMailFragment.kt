@@ -1,6 +1,9 @@
 package com.example.mailroom.ui.mails
 
+import android.app.Activity.RESULT_OK
+import android.content.Intent
 import android.icu.util.Calendar
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
@@ -11,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.net.toUri
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -19,6 +23,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
+import com.bumptech.glide.Glide
 import com.example.mailroom.R
 import com.example.mailroom.data.MailDatabase
 import com.example.mailroom.data.MailRepository
@@ -41,6 +46,7 @@ class NewMailFragment : Fragment(), UserListAdapter.Interaction {
     private lateinit var userListAdapter: UserListAdapter
     private lateinit var sender: User
     private lateinit var reciver: User
+    private lateinit var  uri : Uri
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -130,13 +136,31 @@ class NewMailFragment : Fragment(), UserListAdapter.Interaction {
                     sendDate = calendar.time,
                     userSenderId = sender.userId!!,
                     sender = sender,
-                    receiver = reciver
+                    receiver = reciver,
+                    uri =uri.toString()
                 )
             )
             Toast.makeText(requireContext(), "sent!", Toast.LENGTH_SHORT).show()
 
         }
 
+        binding.ivImage.setOnClickListener {
+            val intent = Intent()
+            intent.type = "image/*"
+            intent.action = Intent.ACTION_GET_CONTENT;
+            startActivityForResult(Intent.createChooser(intent,
+            "Select image"),111)
+        }
+
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && requestCode ==111) {
+             uri = data?.data!!
+            Glide.with(requireActivity()).load(uri).into(binding.ivImage)
+        }
     }
 
     override fun onItemSelected(position: Int, item: User) {

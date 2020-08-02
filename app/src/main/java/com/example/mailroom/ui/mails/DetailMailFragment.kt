@@ -1,6 +1,9 @@
 package com.example.mailroom.ui.mails
 
+import android.app.Activity
+import android.content.Intent
 import android.icu.util.Calendar
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
@@ -12,6 +15,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -19,6 +23,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
+import com.bumptech.glide.Glide
 import com.example.mailroom.R
 import com.example.mailroom.data.MailDatabase
 import com.example.mailroom.data.MailRepository
@@ -40,6 +45,8 @@ class DetailMailFragment : Fragment(), UserListAdapter.Interaction {
     private lateinit var userListAdapter: UserListAdapter
     private lateinit var sender: User
     private lateinit var reciver: User
+    private lateinit var  uri : Uri
+
 
     val args: DetailMailFragmentArgs by navArgs()
 
@@ -74,7 +81,7 @@ class DetailMailFragment : Fragment(), UserListAdapter.Interaction {
         } else {
             TODO("VERSION.SDK_INT < N")
         }
-
+            uri=args.mail.uri.toUri()
         binding.apply {
             tvDate.text = DateFormat.getDateInstance().format(args.mail.sendDate!!)
             textTitle.setText(args.mail.title)
@@ -84,7 +91,16 @@ class DetailMailFragment : Fragment(), UserListAdapter.Interaction {
            tvSender.text= "Send By  :${sender.name}"
             binding.tvGiver.text= "Receive By : ${reciver.name}"
         }
+        Glide.with(requireActivity()).load(args.mail.uri.toUri()).into(binding.ivImage)
 
+        binding.ivImage.setOnClickListener {
+            val intent = Intent()
+            intent.type = "image/*"
+            intent.action = Intent.ACTION_GET_CONTENT;
+            startActivityForResult(
+                Intent.createChooser(intent,
+                "Select image"),111)
+        }
 
         binding.rvSenderSearch.apply {
             layoutManager = LinearLayoutManager(requireContext())
@@ -145,7 +161,8 @@ class DetailMailFragment : Fragment(), UserListAdapter.Interaction {
                     sendDate = args.mail.sendDate,
                     userSenderId = sender.userId!!,
                     sender = sender,
-                    receiver = reciver
+                    receiver = reciver,
+                    uri = uri.toString()
                 )
             )
             Toast.makeText(requireContext(), "updated!", Toast.LENGTH_SHORT).show()
@@ -153,7 +170,13 @@ class DetailMailFragment : Fragment(), UserListAdapter.Interaction {
         }
 
     }
-
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode ==111) {
+            uri = data?.data!!
+            Glide.with(requireActivity()).load(uri).into(binding.ivImage)
+        }
+    }
     override fun onItemSelected(position: Int, item: User) {
         val dialog = MaterialDialog(requireContext())
             .show {

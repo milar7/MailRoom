@@ -20,5 +20,6 @@ data class Mail(
     var title : String,
     var text : String,
     var type : String,
-    val sendDate: Date?
+    val sendDate: Date?,
+    var uri : String
     ): Parcelable
